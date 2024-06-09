@@ -1,0 +1,108 @@
+/* src/components/Navbar.css */
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    transition: background 0.5s ease;
+    z-index: 1000;
+}
+
+.navbar-scrolled {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+.navbar-logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-item {
+    margin-left: 20px;
+}
+
+.navbar-item a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.navbar-item a:hover {
+    color: #333;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.menu-icon {
+  display: none; /* Initially hide menu icon */
+  cursor: pointer;
+  position: relative;
+  z-index: 1100; /* Ensure menu icon appears above other content */
+}
+
+.menu-icon .bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon.open .bar:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.menu-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block; /* Show menu icon on small screens */
+  }
+
+  .navbar-menu {
+    display: none; /* Initially hide navbar menu items */
+    position: absolute;
+    top: 80px; /* Adjust as needed */
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .navbar-menu.active {
+    display: block; /* Show menu items when active */
+  }
+
+  .navbar-menu li {
+    margin-bottom: 10px;
+  }
+}
